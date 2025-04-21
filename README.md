@@ -1,5 +1,3 @@
-¡Perfecto! Entonces te explico el **instructivo técnico paso a paso para hacer la conexión y transferencia entre máquinas con `scp`**, tal como lo hiciste en tu práctica.
-
 ---
 
 ## 🛠️ **Instructivo: Cómo empaquetar, comprimir y transferir archivos entre dos máquinas por terminal (con `scp`)**
@@ -86,4 +84,3 @@ ssh-copy-id usuario@192.168.10.15
 
 ---
 
-¿Querés que te arme un script que haga todo esto con logs y validaciones?
