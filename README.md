@@ -1,86 +1,86 @@
----
+# 🎮 UNO - Agente Inteligente
 
-## 🛠️ **Instructivo: Cómo empaquetar, comprimir y transferir archivos entre dos máquinas por terminal (con `scp`)**
+Un juego de UNO implementado en Python con una interfaz gráfica y un agente inteligente que utiliza probabilidades para tomar decisiones.
 
----
+## 📋 Requisitos
 
-### ✅ Requisitos previos:
+- Python 3.6 o superior
+- Tkinter (incluido en la mayoría de las instalaciones de Python)
+- pandas
 
-1. 🐧 Dos equipos con Linux o Unix-like (puede ser máquina virtual o real)
-2. ✅ SSH habilitado y corriendo en la máquina destino (`sshd`)
-3. 👤 Un usuario válido y contraseña o acceso por llave SSH
-4. 📡 Conectividad entre ambas máquinas (misma red o accesibles vía IP)
+## 🚀 Instalación
 
----
-
-### 🔹 Paso 1: **Empaquetar y/o comprimir archivos**
-
-#### Opción A – Solo empaquetar:
+1. Clona este repositorio o descarga los archivos:
 ```bash
-tar -cvf respaldo.tar carpeta/
+git clone [URL_DEL_REPOSITORIO]
 ```
 
-#### Opción B – Empaquetar y comprimir con gzip:
+2. Instala las dependencias necesarias:
 ```bash
-tar -czvf respaldo.tar.gz carpeta/
+pip install pandas
 ```
 
----
+## 🎲 Cómo Jugar
 
-### 🔹 Paso 2: **Verificar la IP de la máquina destino**
-
-En la máquina remota (destino), ejecuta:
-
+1. Ejecuta el juego:
 ```bash
-ip a
-# o
-hostname -I
+python unointerfacev3.py
 ```
 
-Ejemplo de IP: `192.168.10.15`
+2. El juego se iniciará automáticamente con:
+   - Jugador 1 (Tú)
+   - Máquina (Agente Inteligente)
+   - Jugador 2 (Tú)
 
----
+### 📝 Reglas del Juego
 
-### 🔹 Paso 3: **Transferir el archivo con `scp`**
+- Cada jugador comienza con 7 cartas
+- Debes jugar una carta que coincida con el color o número de la carta actual
+- Las cartas especiales tienen efectos específicos:
+  - 🎨 Comodín: Cambia el color
+  - 🎨 Comodín +4: Cambia el color y el siguiente jugador roba 4 cartas
+  - ⏭️ Salta: El siguiente jugador pierde su turno
+  - 🔄 Reversa: Cambia la dirección del juego
+  - 📥 Roba 2: El siguiente jugador roba 2 cartas y pierde su turno
 
-Desde la máquina local (donde hiciste el `.tar.gz`), ejecutá:
+### 🎯 Características
 
-```bash
-scp respaldo.tar.gz usuario@192.168.10.15:/home/usuario/
-```
+- Interfaz gráfica intuitiva
+- Agente inteligente que utiliza probabilidades para tomar decisiones
+- Sistema de registro de jugadas y estadísticas
+- Exportación de estadísticas a Excel
+- Visualización en tiempo real de probabilidades y contadores
 
-🧠 Desglose:
-- `respaldo.tar.gz` → archivo a enviar
-- `usuario` → nombre de usuario remoto
-- `192.168.10.15` → IP de la máquina destino
-- `/home/usuario/` → ruta remota donde se guardará
+### 🎮 Controles
 
-Te pedirá la contraseña del usuario remoto (a menos que uses clave SSH).
+- Haz clic en una carta para seleccionarla
+- Usa el botón "Jugar Carta" para jugar la carta seleccionada
+- Usa el botón "Robar" para tomar una carta del mazo
+- Presiona "UNO!" cuando te quede una sola carta
+- Usa "Nuevo Juego" para comenzar una nueva partida
 
----
+## 📊 Estadísticas
 
-### 🔹 Paso 4: **Extraer el archivo en la máquina destino**
+El juego mantiene un registro detallado de:
+- Probabilidades de cartas por jugador
+- Contadores de cartas restantes
+- Log de jugadas
+- Posibilidad de exportar estadísticas a Excel
 
-Una vez copiado, en la máquina destino:
+## 🤖 Agente Inteligente
 
-```bash
-cd /home/usuario/
-tar -xzvf respaldo.tar.gz
-```
+La máquina utiliza un sistema de probabilidades para:
+- Predecir las cartas de los oponentes
+- Tomar decisiones estratégicas
+- Adaptar su estrategia según el estado del juego
 
-✅ ¡Listo! El contenido se descomprime con estructura completa.
+## 🐛 Reportar Problemas
 
----
+Si encuentras algún problema o tienes sugerencias, por favor:
+1. Abre un issue en el repositorio
+2. Describe el problema o sugerencia
+3. Incluye pasos para reproducir el problema (si aplica)
 
-### 🔒 Opcional – Transferencia con clave SSH (sin contraseña)
+## 📝 Licencia
 
-1. En la máquina local:
-```bash
-ssh-keygen -t ed25519
-ssh-copy-id usuario@192.168.10.15
-```
-
-2. Luego `scp` funcionará sin pedir contraseña.
-
----
-
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
