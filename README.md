@@ -12,7 +12,7 @@ Un juego de UNO implementado en Python con una interfaz gráfica y un agente int
 
 1. Clona este repositorio o descarga los archivos:
 ```bash
-git clone [URL_DEL_REPOSITORIO]
+git clone https://github.com/L3CHUGU1T4/Interconeccion-de-disp/tree/main
 ```
 
 2. Instala las dependencias necesarias:
